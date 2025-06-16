@@ -3,9 +3,16 @@
 
 [![Powered by DataGym.io](https://img.shields.io/badge/Powered%20by-DataGym.io-%23005FFF?style=for-the-badge&logo=data&logoColor=white)](https://www.datagym.io)
 
-> 🚨 **IMPORTANT NOTICE**
-> 👉 This repository is a **read-only template created exclusively for the DataGym.io Workshop**.
-> ❌ **Do not open Pull Requests or merge any changes into this repository.**
+> 🚨 **IMPORTANT NOTICE – WORKSHOP TEMPLATE**
+> This repository is used **exclusively for the DataGym.io workshop**.
+>
+> ✅ To work on this project:
+> 1. **Create your own branch** with your name or alias:
+>    ```bash
+>    git checkout -b <your_name>
+>    ```
+> 2. Commit and push freely **within your branch only**.
+> 3. **❌ Do NOT open PRs or merge anything into the `main` branch.**
 
 Welcome to **Horrorland** – the most terrifying theme park experience on Earth.
 
