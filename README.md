@@ -114,14 +114,46 @@ dbtf system uninstall
 
 ---
 
-## 🔐 Setting Environment Variables
+Ótimo ponto! Aqui está a seção **🔐 Setting Environment Variables** atualizada com instruções detalhadas de **onde encontrar cada variável** no Snowflake — especialmente o `SNOWFLAKE_ACCOUNT`, com passo a passo visualizado:
+
+---
+
+### 🔐 Setting Environment Variables
 
 To connect dbt to Snowflake, you need to define the following environment variables:
 
-- `SNOWFLAKE_ACCOUNT`
-- `SNOWFLAKE_USER`
-- `SNOWFLAKE_PASSWORD`
-- `SNOWFLAKE_DEV_SCHEMA` → any name you want (e.g. `workshop_john`)
+| Variable               | Description                                                      |
+| ---------------------- | ---------------------------------------------------------------- |
+| `SNOWFLAKE_ACCOUNT`    | Your Snowflake **account identifier**                            |
+| `SNOWFLAKE_USER`       | Your Snowflake **login username**                                |
+| `SNOWFLAKE_PASSWORD`   | Your Snowflake **login password**                                |
+| `SNOWFLAKE_DEV_SCHEMA` | A custom schema name for your dev models (e.g. `workshop_maria`) |
+
+---
+
+### 🔍 Where to find this information?
+
+#### 🧭 SNOWFLAKE\_ACCOUNT (Account Identifier)
+
+1. Go to your **Snowflake Web UI**
+2. Click on your **user name** (bottom left corner)
+3. Choose **"Account"**
+4. Then select **"Account Details"**
+5. Copy the **Account Identifier**
+   👉 Example: `abc-xy12345.us-east-1`
+
+This is what you'll use as your `SNOWFLAKE_ACCOUNT`.
+
+#### 👤 SNOWFLAKE\_USER and SNOWFLAKE\_PASSWORD
+
+These are the credentials you used when signing up on Snowflake.
+
+#### 🏷 SNOWFLAKE\_DEV\_SCHEMA
+
+This is a custom name you define, like `workshop_<yourname>`.
+You will use this schema for creating your models without interfering with others.
+
+---
 
 ### ✅ Preferred: Set Environment Variables Permanently
 
