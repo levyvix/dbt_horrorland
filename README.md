@@ -87,12 +87,15 @@ We'll simulate data ingestion using SQL scripts.
 
 1. In the Snowflake UI, click **Projects** > **Worksheets** > **+**
 <img src="./images/ingest_1.png" alt="Account Identifier" width="400"/>
+
 2. If prompted, use the role **ACCOUNTADMIN** and the warehouse **COMPUTE_WH**
 <img src="./images/ingest_2.png" alt="Account Identifier" width="400"/>
-3. Copy the contents of [`snowflake_insert.txt`](./snowflake_insert.txt)
+
+3. Copy the contents of [snowflake_insert.txt](./snowflake_insert.txt)
 4. Paste into the worksheet, select everything, and **run** it
 <img src="./images/ingest_3.png" alt="Account Identifier" width="400"/>
 This will create your raw tables.
+
 
 ---
 
@@ -108,7 +111,10 @@ Search for `dbtLabsInc.dbt` in the Extensions tab or use these links:
 * [Cursor Marketplace](https://marketplace.cursorapi.com/items?itemName=dbtLabsInc.dbt)
 
 It installs dbt Fusion automatically.
+
+
 <img src="./images/extension.png" alt="Account Identifier" width="400"/>
+
 
 It will ask you to register the extension within 14 days. You can register for free.
 
@@ -151,15 +157,15 @@ You will be prompted to fill:
 | Prompt      | Recommended Value                    |
 | ----------- | ------------------------------------ |
 | Adapter     | `snowflake`                          |
-| Account     | Your Account Identifier              |
-| User        | Your Snowflake Username              |
+| Account     | Your Account Identifier (e.g., RVDLYID-LX74876)              |
+| User        | Your Snowflake Username  (e.g., bruno)             |
 | Auth Method | `password`                           |
 | Password    | Your Snowflake Password              |
 | MFA         | `N` (not required for workshop)      |
 | Role        | `ACCOUNTADMIN` *(for workshop only)* |
-| Database    | `DEV_DATABASE` *(from SQL file)*     |
+| Database    | `DEV_DATABASE` *(created in the ingestion step)*     |
 | Warehouse   | `COMPUTE_WH`                         |
-| Schema      | Your Name (e.g. `bruno`)             |
+| Schema      | The name you want (e.g. `BRUNO`)             |
 
 You should see a confirmation like:
 
@@ -194,13 +200,13 @@ Now you're ready to start modeling!
 
 ## 💡 What You’ll Learn
 
-✔️ Connect dbt Fusion to Snowflake
-✔️ Ingest and clean raw data
-✔️ Build a star schema
-✔️ Add freshness and data quality tests
-✔️ Use `sources`, `staging`, `marts`
-✔️ Apply unit tests and documentation
-✔️ Explore dbt lineage and insights
+- ✔️ Connect dbt Fusion to Snowflake
+- ✔️ Ingest and clean raw data
+- ✔️ Build a star schema
+- ✔️ Add freshness and data quality tests
+- ✔️ Use `sources`, `staging`, `marts`
+- ✔️ Apply unit tests and documentation
+- ✔️ Explore dbt lineage and insights
 
 ---
 
