@@ -177,22 +177,32 @@ You should see a confirmation like:
 
 After initialization, clean your project to start fresh:
 
+MacOS/Linux
 ```bash
 cd horrorland
 rm -rf seeds macros target
 rm -rf models/*
 ```
 
+Windows (PowerShell)
+```bash
+cd horrorland
+Remove-Item -Recurse -Force .\seeds, .\macros, .\target
+Remove-Item -Recurse -Force .\models\*
+```
+
 ## 🔄 Reload window
 
 For the extension to work properly, your VSCode/Cursor workspace must be the root folder of the dbt_project, in this case `/horrorland`.
 
-Ensure you are within the `/horrorland` folder in your terminal, and run
+Make sure you are within the `/horrorland` folder in your terminal, and run
 
 ```bash
 code . #if VSCode
 cursor . #if Cursor
 ```
+> If `code .` or `cursor .` doesn't work, open VS Code or Cursor manually and choose **File > Open Folder...**, then select the `horrorland` folder.
+
 
 Now you're ready to start modeling!
 
