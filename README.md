@@ -140,7 +140,7 @@ To connect dbt to Snowflake, you need to define the following environment variab
 3. Choose **"Account"**
 4. Then select **"Account Details"**
 5. Copy the **Account Identifier**
-   👉 Example: `abc-xy12345.us-east-1`
+   👉 Example: `ABCDYID-FG74739`
 
 This is what you'll use as your `SNOWFLAKE_ACCOUNT`.
 
