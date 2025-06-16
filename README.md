@@ -1,36 +1,38 @@
-
 # 🎃 Horrorland dbt Workshop
 
-[![Powered by DataGym.io](https://img.shields.io/badge/Powered%20by-DataGym.io-%23005FFF?style=for-the-badge&logo=data&logoColor=white)](https://www.datagym.io)
+[![Powered by DataGym.io](https://img.shields.io/badge/Powered%20by-DataGym.io-%23005FFF?style=for-the-badge\&logo=data\&logoColor=white)](https://www.datagym.io)
 
 > 🚨 **IMPORTANT NOTICE – WORKSHOP TEMPLATE**
 > This repository is used **exclusively for the DataGym.io workshop**.
 >
-> ✅ To work on this project:
-> 1. **Create your own branch** with your name or alias:
+> ✅ To work on your project:
+>
+> 1. **Clone this repository**
+>
+>    ```bash
+>    git clone https://github.com/datagym-io/dbt-workshop-empty.git
+>    cd horrorland-dbt-workshop
+>    ```
+> 2. **Create your own branch** (replace `<your_name>`):
+>
 >    ```bash
 >    git checkout -b <your_name>
 >    ```
-> 2. Commit and push freely **within your branch only**.
-> 3. **❌ Do NOT open PRs or merge anything into the `main` branch.**
+> 3. Work only inside your branch.
+> 4. **❌ Do NOT open PRs or merge anything into the `main` branch.**
 
-Welcome to **Horrorland** – the most terrifying theme park experience on Earth.
-
-As Halloween approaches, the leadership is panicking. Visitor satisfaction is down, and no one really knows why. The data is chaotic, and the analytics team has been tasked with finding answers.
-
-Your job as an analytics engineer is to use **Snowflake** and **dbt** to bring order to this chaos and uncover critical insights.
 
 ---
 
 ## 📚 Table of Contents
 
-- [👻 Context](#-context)
-- [❄️ Getting Started with Snowflake](#️-getting-started-with-snowflake)
-- [⚙️ Setting Up dbt Fusion](#️-setting-up-dbt-fusion)
-- [🔐 Setting Environment Variables](#-setting-environment-variables)
-- [🏗️ Creating Your dbt Project](#️-creating-your-dbt-project)
-- [💡 What You’ll Learn](#-what-youll-learn)
-- [💬 Support & Questions](#-support--questions)
+* [👻 Context](#-context)
+* [❄️ Getting Started with Snowflake](#️-getting-started-with-snowflake)
+* [⚙️ Setting Up dbt Fusion](#️-setting-up-dbt-fusion)
+* [🛠️ Initializing Your Project](#️initializing-your-project)
+* [🧹 Clean Up Default Folders](#️clean-up-default-folders)
+* [💡 What You’ll Learn](#-what-youll-learn)
+* [💬 Support & Questions](#-support--questions)
 
 ---
 
@@ -38,61 +40,84 @@ Your job as an analytics engineer is to use **Snowflake** and **dbt** to bring o
 
 You work at **Horrorland**, a spooky and thrilling theme park.
 
-The Halloween season is coming, but something is wrong:
-- Visitors are unhappy
-- VIP guests may not be getting their money’s worth
-- Ticket pricing might be completely off
-- Fear levels seem to influence reviews — or do they?
+The Halloween season is near, but something is wrong:
 
-Leadership needs answers to the following:
+* Visitors are unhappy
+* VIPs may not be getting their money’s worth
+* Ticket pricing feels off
+* Fear levels may or may not influence ratings
+
+You’ve been tasked with answering:
 
 1. Which haunted houses have the happiest visitors?
 2. Are VIP visitors actually more satisfied?
-3. Which ticket type delivers the best value (perceived value vs price)?
-4. Is there a relationship between fear level and visitor ratings?
-5. Are certain visitor types more likely to recommend the park?
-
-Time to find out — using dbt!
+3. Which ticket type delivers the best value?
+4. Is there a link between fear level and ratings?
+5. Are some visitor types more likely to recommend?
 
 ---
 
 ## ❄️ Getting Started with Snowflake
 
-### 1. Create a Snowflake Trial Account
+### Step 1: Create a Snowflake Trial Account
 
-Go to [signup.snowflake.com](https://signup.snowflake.com/) and create a free trial account.
+1. Go to [signup.snowflake.com](https://signup.snowflake.com/)
+2. Choose:
 
-➡️ Select the **Enterprise** edition
-➡️ Choose **AWS** as your cloud provider
-➡️ Set up a **username and password**, and save your **account name**
+   * **Enterprise Edition**
+   * **AWS** as the cloud provider
+3. Set up a **username** and **password**
+4. Save your **Account Identifier**
+
+### How to find your Account Identifier:
+
+1. Open the **Snowflake Web UI**
+2. Click your **user avatar** (bottom-left)
+3. Go to **Account > View Account Details**
+<img src="./images/account_id_1.png" alt="Account Identifier" width="400"/>
+4. Copy the `Account Identifier`, e.g.:
+   `RVDLYID-LX74876`
+<img src="./images/account_id_2.png" alt="Account Identifier" width="400"/>
 
 ---
 
-### 2. Ingest Raw Data
+### Step 2: Ingest Raw Data
 
-In a real company, data engineers would handle ingestion pipelines. For this workshop, we'll simulate that by manually loading the raw data.
+We'll simulate data ingestion using SQL scripts.
 
-🧪 Steps:
-1. Open your **Snowflake Web UI**
-2. Create a new worksheet
+1. In the Snowflake UI, click **Projects** > **Worksheets** > **+**
+<img src="./images/ingest_1.png" alt="Account Identifier" width="400"/>
+2. If prompted, use the role **ACCOUNTADMIN** and the warehouse **COMPUTE_WH**
+<img src="./images/ingest_2.png" alt="Account Identifier" width="400"/>
 3. Copy the contents of [`snowflake_insert.txt`](./snowflake_insert.txt)
-4. Paste and run it inside your warehouse to create the raw tables
+4. Paste into the worksheet, select everything, and **run** it
+<img src="./images/ingest_3.png" alt="Account Identifier" width="400"/>
+This will create your raw tables.
 
 ---
 
 ## ⚙️ Setting Up dbt Fusion
 
-We'll use **dbt Fusion**, the new high-performance engine from dbt Labs.
+We’ll use **dbt Fusion**, the new Rust-powered dbt engine.
 
-### ✅ Option 1 (Recommended): Use the [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=dbt-labs.dbt)
+### ✅ Option 1 (Recommended): Install via VS Code Extension
 
-Install the official **dbt Language Server** extension in VS Code and it will install dbt Fusion by default.
+Search for `dbtLabsInc.dbt` in the Extensions tab or use these links:
+
+* [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=dbtLabsInc.dbt)
+* [Cursor Marketplace](https://marketplace.cursorapi.com/items?itemName=dbtLabsInc.dbt)
+
+It installs dbt Fusion automatically.
+<img src="./images/extension.png" alt="Account Identifier" width="400"/>
+
+It will ask you to register the extension within 14 days. You can register for free.
 
 ---
 
 ### 💻 Option 2: Install via CLI
 
 #### macOS / Linux
+
 ```bash
 curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh -s -- --update
 exec $SHELL
@@ -111,175 +136,84 @@ Start-Process powershell
 dbtf --version
 ```
 
-To update:
+---
+
+## 🛠️ Initializing Your Project
+
+Use `dbtf init` to create your dbt project from scratch.
 
 ```bash
-dbtf system update
+dbtf init --project-name horrorland
 ```
 
-To uninstall:
+You will be prompted to fill:
+
+| Prompt      | Recommended Value                    |
+| ----------- | ------------------------------------ |
+| Adapter     | `snowflake`                          |
+| Account     | Your Account Identifier              |
+| User        | Your Snowflake Username              |
+| Auth Method | `password`                           |
+| Password    | Your Snowflake Password              |
+| MFA         | `N` (not required for workshop)      |
+| Role        | `ACCOUNTADMIN` *(for workshop only)* |
+| Database    | `DEV_DATABASE` *(from SQL file)*     |
+| Warehouse   | `COMPUTE_WH`                         |
+| Schema      | Your Name (e.g. `bruno`)             |
+
+You should see a confirmation like:
+
+<img src="./images/connection.png" alt="Account Identifier" width="400"/>
+
+---
+
+## 🧹 Clean Up Default Folders
+
+After initialization, clean your project to start fresh:
 
 ```bash
-dbtf system uninstall
+cd horrorland
+rm -rf seeds macros target
+rm -rf models/*
 ```
 
----
+## 🔄 Reload window
 
-Ótimo ponto! Aqui está a seção **🔐 Setting Environment Variables** atualizada com instruções detalhadas de **onde encontrar cada variável** no Snowflake — especialmente o `SNOWFLAKE_ACCOUNT`, com passo a passo visualizado:
+For the extension to work properly, your VSCode/Cursor workspace must be the root folder of the dbt_project, in this case `/horrorland`.
 
----
-
-### 🔐 Setting Environment Variables
-
-To connect dbt to Snowflake, you need to define the following environment variables:
-
-| Variable               | Description                                                      |
-| ---------------------- | ---------------------------------------------------------------- |
-| `SNOWFLAKE_ACCOUNT`    | Your Snowflake **account identifier**                            |
-| `SNOWFLAKE_USER`       | Your Snowflake **login username**                                |
-| `SNOWFLAKE_PASSWORD`   | Your Snowflake **login password**                                |
-| `SNOWFLAKE_DEV_SCHEMA` | A custom schema name for your dev models (e.g. `workshop_maria`) |
-
----
-
-### 🔍 Where to find this information?
-
-#### 🧭 SNOWFLAKE\_ACCOUNT (Account Identifier)
-
-1. Go to your **Snowflake Web UI**
-2. Click on your **user name** (bottom left corner)
-3. Choose **"Account"**
-4. Then select **"Account Details"**
-5. Copy the **Account Identifier**
-   👉 Example: `ABCDYID-FG74739`
-
-This is what you'll use as your `SNOWFLAKE_ACCOUNT`.
-
-#### 👤 SNOWFLAKE\_USER and SNOWFLAKE\_PASSWORD
-
-These are the credentials you used when signing up on Snowflake.
-
-#### 🏷 SNOWFLAKE\_DEV\_SCHEMA
-
-This is a custom name you define, like `workshop_<yourname>`.
-You will use this schema for creating your models without interfering with others.
-
----
-
-### ✅ Preferred: Set Environment Variables Permanently
-
-#### On macOS / Linux (bash/zsh)
-1. Open your terminal and run:
-    ```bash
-    nano ~/.zshrc  # or ~/.bashrc depending on your shell
-    ```
-
-2. Add the following lines at the bottom:
-
-   ```bash
-   export SNOWFLAKE_ACCOUNT='your_account'
-   export SNOWFLAKE_USER='your_user'
-   export SNOWFLAKE_PASSWORD='your_password'
-   export SNOWFLAKE_DEV_SCHEMA='your_schema'
-   ```
-3. Save and reload:
-
-   ```bash
-   source ~/.zshrc  # or source ~/.bashrc
-   ```
-
-#### On Windows (PowerShell)
-
-1. Open PowerShell **as Administrator**
-2. Run the following commands (replace values):
-
-   ```powershell
-   [System.Environment]::SetEnvironmentVariable('SNOWFLAKE_ACCOUNT', 'your_account', 'User')
-   [System.Environment]::SetEnvironmentVariable('SNOWFLAKE_USER', 'your_user', 'User')
-   [System.Environment]::SetEnvironmentVariable('SNOWFLAKE_PASSWORD', 'your_password', 'User')
-   [System.Environment]::SetEnvironmentVariable('SNOWFLAKE_DEV_SCHEMA', 'your_schema', 'User')
-   ```
-
-You may need to **restart your terminal or VS Code** for the changes to take effect.
-
----
-
-### 🗂️ Alternative: Use a `.env` File (project-based)
-
-Create a file named `.env` in the root of your `horrorland` project:
-
-```env
-export SNOWFLAKE_ACCOUNT='your_account'
-export SNOWFLAKE_USER='your_user'
-export SNOWFLAKE_PASSWORD='your_password'
-export SNOWFLAKE_DEV_SCHEMA='your_schema'
-```
-
-
-Load it  with:
+Ensure you are within the `/horrorland` folder in your terminal, and run
 
 ```bash
-source .env  # macOS/Linux
+code . #if VSCode
+cursor . #if Cursor
 ```
 
-On Windows (PowerShell):
-
-```powershell
-Get-Content .env | ForEach-Object {
-  if ($_ -match "^(.*?)=(.*)$") {
-    [System.Environment]::SetEnvironmentVariable($matches[1], $matches[2], "Process")
-  }
-}
-```
-
----
-
-### ✅ Test Your Configuration
-
-To ensure everything is working:
-
-```bash
-dbtf debug
-```
-
----
-
-
-## 🏗️ Creating Your dbt Project
-
-These steps will be done together during the workshop, but here’s the structure:
-
-1. Define your `sources`
-
-   * Add tests and freshness checks
-2. Create `staging` models (`stg_*`)
-
-   * Clean raw data and apply standard naming
-3. Build your `marts` (fact and dimension tables)
-4. Add schema tests and unit tests
-5. (Optional) Create `snapshots` or `seeds` if needed
+Now you're ready to start modeling!
 
 ---
 
 ## 💡 What You’ll Learn
 
 ✔️ Connect dbt Fusion to Snowflake
-✔️ Build a clean star schema
-✔️ Add tests and freshness validations
-✔️ Create staging and marts models
-✔️ Run and interpret unit tests
-✔️ Use dbt documentation and lineage features
-✔️ Answer real business questions with SQL
+✔️ Ingest and clean raw data
+✔️ Build a star schema
+✔️ Add freshness and data quality tests
+✔️ Use `sources`, `staging`, `marts`
+✔️ Apply unit tests and documentation
+✔️ Explore dbt lineage and insights
 
 ---
 
 ## 💬 Support & Questions
 
-If you have any questions during the workshop, use the following channels:
+Use the appropriate Discord channels:
 
-* `❓-duvidas-🇧🇷`/ `❓-questions-🇺🇸` for questions related to the workshop
-* `support-suporte-🌎` for general help
+* `❓-duvidas-🇧🇷` — Portuguese Q\&A
+* `❓-questions-🇺🇸` — English Q\&A
+* `support-suporte-🌎` — General help
+
+Or visit [DataGym.io](https://www.datagym.io)
 
 ---
 
-Happy modeling… and beware of ghosts in the data! 👻
+👻 Good luck, and may your data models never haunt you!
