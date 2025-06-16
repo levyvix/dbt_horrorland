@@ -3,6 +3,10 @@
 
 [![Powered by DataGym.io](https://img.shields.io/badge/Powered%20by-DataGym.io-%23005FFF?style=for-the-badge&logo=data&logoColor=white)](https://www.datagym.io)
 
+> 🚨 **IMPORTANT NOTICE**
+> 👉 This repository is a **read-only template created exclusively for the DataGym.io Workshop**.
+> ❌ **Do not open Pull Requests or merge any changes into this repository.**
+
 Welcome to **Horrorland** – the most terrifying theme park experience on Earth.
 
 As Halloween approaches, the leadership is panicking. Visitor satisfaction is down, and no one really knows why. The data is chaotic, and the analytics team has been tasked with finding answers.
