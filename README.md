@@ -11,7 +11,7 @@
 >
 >    ```bash
 >    git clone https://github.com/datagym-io/dbt-workshop-empty.git
->    cd horrorland-dbt-workshop
+>    cd dbt-workshop-empty
 >    ```
 > 2. **Create your own branch** (replace `<your_name>`):
 >
