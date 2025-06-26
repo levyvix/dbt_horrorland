@@ -1,3 +1,5 @@
+version: 2
+
 snapshots:
   - name: scd_haunted_houses
     relation: source('attractions', 'haunted_houses')

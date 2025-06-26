@@ -1,3 +1,5 @@
+version: 2
+
 snapshots:
   - name: scd_customers
     relation: source('people', 'customers')
