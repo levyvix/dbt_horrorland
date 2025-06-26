@@ -36,20 +36,20 @@ jobs:
           SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
         run: |
           mkdir -p ~/.dbt
-          echo 'horrorland:
+          echo "horrorland:
             target: ci
             outputs:
               ci:
                 type: snowflake
-                account: {{ env_var('SNOWFLAKE_ACCOUNT') }}
-                user: {{ env_var('SNOWFLAKE_USER') }}
-                password: {{ env_var('SNOWFLAKE_PASSWORD') }}
-                role: {{ env_var('SNOWFLAKE_ROLE') }}
-                warehouse: {{ env_var('SNOWFLAKE_WAREHOUSE') }}
-                database: {{ env_var('SNOWFLAKE_DATABASE') }}
-                schema: {{ env_var('SNOWFLAKE_SCHEMA') }}
+                account: $SNOWFLAKE_ACCOUNT
+                user: $SNOWFLAKE_USER
+                password: $SNOWFLAKE_PASSWORD
+                role: $SNOWFLAKE_ROLE
+                warehouse: $SNOWFLAKE_WAREHOUSE
+                database: $SNOWFLAKE_DATABASE
+                schema: $SNOWFLAKE_SCHEMA
                 threads: 1
-                client_session_keep_alive: False' > ~/.dbt/profiles.yml
+                client_session_keep_alive: False" > ~/.dbt/profiles.yml
 
       - name: Run dbt debug
         run: dbt debug --project-dir horrorland
