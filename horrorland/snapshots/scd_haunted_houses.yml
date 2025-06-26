@@ -1,0 +1,10 @@
+version: 2
+
+snapshots:
+  - name: scd_haunted_houses
+    relation: source('attractions', 'haunted_houses')
+    description: "Snapshot of haunted houses"
+    config:
+      strategy: timestamp 
+      unique_key: HAUNTED_HOUSE_ID
+      updated_at: updated_at

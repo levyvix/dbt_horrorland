@@ -1,38 +1,5 @@
-# 🎃 Horrorland dbt Workshop
+# 🎃 Horrorland dbt 
 
-[![Powered by DataGym.io](https://img.shields.io/badge/Powered%20by-DataGym.io-%23005FFF?style=for-the-badge\&logo=data\&logoColor=white)](https://www.datagym.io)
-
-> 🚨 **IMPORTANT NOTICE – WORKSHOP TEMPLATE**
-> This repository is used **exclusively for the DataGym.io workshop**.
->
-> ✅ To work on your project:
->
-> 1. **Clone this repository**
->
->    ```bash
->    git clone https://github.com/datagym-io/dbt-workshop-empty.git
->    cd dbt-workshop-empty
->    ```
-> 2. **Create your own branch** (replace `<your_name>`):
->
->    ```bash
->    git checkout -b <your_name>
->    ```
-> 3. Work only inside your branch.
-> 4. **❌ Do NOT open PRs or merge anything into the `main` branch.**
-
-
----
-
-## 📚 Table of Contents
-
-* [👻 Context](#-context)
-* [❄️ Getting Started with Snowflake](#️-getting-started-with-snowflake)
-* [⚙️ Setting Up dbt Fusion](#️-setting-up-dbt-fusion)
-* [🛠️ Initializing Your Project](#️initializing-your-project)
-* [🧹 Clean Up Default Folders](#️clean-up-default-folders)
-* [💡 What You’ll Learn](#-what-youll-learn)
-* [💬 Support & Questions](#-support--questions)
 
 ---
 
