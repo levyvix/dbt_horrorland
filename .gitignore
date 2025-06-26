@@ -1,7 +1,6 @@
 *.env
 *DS_Store
 *profiles.yml
-# */horrorland
 */jaffle_shop
 logs/
 */log

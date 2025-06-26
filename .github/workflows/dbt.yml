@@ -36,7 +36,7 @@ jobs:
           SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
         run: |
           mkdir -p ~/.dbt
-          echo "horrorland:
+          echo 'horrorland:
             target: ci
             outputs:
               ci:
@@ -49,7 +49,7 @@ jobs:
                 database: {{ env_var('SNOWFLAKE_DATABASE') }}
                 schema: {{ env_var('SNOWFLAKE_SCHEMA') }}
                 threads: 1
-                client_session_keep_alive: False" > ~/.dbt/profiles.yml
+                client_session_keep_alive: False' > ~/.dbt/profiles.yml
 
       - name: Run dbt debug
         run: dbt debug --project-dir horrorland
